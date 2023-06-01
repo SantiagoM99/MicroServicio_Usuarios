@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="h1">Bienvenido a nuestro portal de Médicos</h1>
+        </div>
+    </div>
+    <div class="row">
+        
+        <div class="container">
+            <h1>Medico</h1>
+            <div class="card-columns">
+                {% for medico in medicos_list %}
+                <div class="card mb-3 custom-card">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <div class="card-img-container">
+                        <img src="https://us.123rf.com/450wm/kritchanut/kritchanut1406/kritchanut140600114/29213224-hombre-foto-de-perfil-silueta-avatar.jpg?ver=6" class="img-fluid rounded-start" style= "margin-left: 15px; margin-top: 20px;"alt="...">
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">{{medico.especialidad }}</h5>
+                        <p class="card-text">Consultorio: {{ medico.consultorio}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+              
+              
+            <a class="add-medico-button" href="{% url 'createMedico' %}">+ Medico</a>
+              
+        </div>
+        
+    </div>
+    
+</div>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/historiasClinicas.css' %}">
+<style>
+    .add-medico-button {
+      position: fixed;
+      bottom: 120px;
+      right: 20px;
+      background-color: #1b998b;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      text-decoration: none;
+    }
+    .add-medico-button:hover{
+        background-color: #52a097;
+        color:white;
+        text-decoration: none;
+    }
+</style>
+{% endblock %}

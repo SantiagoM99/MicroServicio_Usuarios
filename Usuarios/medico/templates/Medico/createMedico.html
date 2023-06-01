@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="h1">Bienvenido a nuestro portal de Médicos</h1>
+            <hr >
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+
+        </div>
+        <div class="col-4 text-center">
+
+            <form method="POST" id="myForm">
+                {% csrf_token %}
+                <br>
+                <strong>
+
+                    {{ form.as_p }}
+                </strong>
+                <div class="pb-3">
+
+                    <button type="submit" class="add-medico-button">Create</button>
+                    <a class="add-medico-button" href="{% url 'medicos_list' %}" style="background-color: #d7263d; height: 3rem;">Back</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-4">
+
+        </div>
+
+    </div>
+
+</div>
+<style>
+    .add-medico-button {
+    background-color: #1b998b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    border-color: transparent;
+    height: 2.9rem;
+  }
+  .add-medico-button:hover{
+      background-color: #52a097;
+      color:white;
+      text-decoration: none;
+
+  }
+</style>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        $('#myForm').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{% url 'create_measurement' %}",
+                data: $('#myForm').serialize(),
+                success: function (response) {
+                    // Show a toaster message when the form is successfully submitted
+                    toastr.success('Measurement created successfully!');
+                    // Clear the form
+                    $('#myForm')[0].reset();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

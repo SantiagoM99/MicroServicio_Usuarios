@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    
+    {% block content %}
+    <style>
+        .button {
+          display: inline-block;
+          padding: 10px 20px;
+          border-radius: 10px;
+          outline-color: transparent;
+          background-color: #4335ca;
+          color: white;
+          text-align: center;
+          font-size: 16px;
+          cursor: pointer;
+          margin: 2rem;
+          height: 15rem;
+          width:15rem;
+          border-width: 0 !important;
+        }
+        .button:focus{
+            outline-width:0;    
+
+        }
+        .button:hover{
+            background-color: #5b4ecc;    
+
+        }
+    
+        .button i {
+          margin-right: 5px;
+        }
+        
+    
+        .mamahuevazo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            background-image: url('../static/media/blur-hospital.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .nurse {
+            background-image: url('../static/media/icon_enfermera.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 4rem 1rem; /* Adjust padding as needed */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            
+        }
+
+        .nurse i {
+            font-size: 15rem;
+            margin-bottom: 1rem; /* Adjust margin as needed */
+        }
+        .doctor {
+            background-image: url('../static/media/icon_medico.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 4rem 1rem; /* Adjust padding as needed */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            
+        }
+
+        .doctor i {
+            font-size: 15rem;
+            margin-bottom: 1rem; /* Adjust margin as needed */
+        }
+
+        .pepe {
+            margin-top: 2.2rem;
+            font-size: large;
+        }
+        
+      </style>
+    <div class="mamahuevazo">
+        <button class="button" onclick="location.href='{% url 'medicos_list' %}'">
+            <i class="doctor"></i>
+            <div class="pepe">Médicos</div>
+          </button>
+          
+        <button class="button" onclick="location.href='{% url 'medicos_list' %}'">
+            <i class="nurse"></i> 
+            <div class="pepe">Enfermeras</div>
+        </button>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    {% endblock %}
