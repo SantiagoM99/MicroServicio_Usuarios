@@ -79,8 +79,8 @@ WSGI_APPLICATION = 'Usuarios.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'usuario_db',
-        'USER': 'usuario_user',
+        'NAME': 'ukelele_db',
+        'USER': 'ukelele_user',
         'PASSWORD':'isis2503',
         'HOST':'10.128.0.13',
         'PORT':'',
