@@ -14,7 +14,7 @@ def medicos_list(request):
     context = {
         'medicos_list': medicos
         }
-    return render(request, 'medico/medicos.html', context)
+    return render(request, 'Medico/medicos.html', context)
 
 """
 def medico_detail(request, pk):
